@@ -1,6 +1,15 @@
 
 # dagre
 
+功能介绍
+    1.基于插件 d3 及 dagre-d3的流程图展示
+
+    2.可进行节点的增删改功能
+
+    3.可添加箭头描述
+
+    4.可自定义箭头及节点背景色
+
 ## Project setup
 ```
 npm install
@@ -25,4 +34,6 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # dagre-d3
-基于dagre-d3的流程图展示，节点新增、编辑、删除功能
+    author: LiJie
+    
+    contact:1262001568

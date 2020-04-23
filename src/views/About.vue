@@ -53,7 +53,7 @@
         <el-button type="primary" @click="editNodeFnc">确 定</el-button>
       </span>
     </el-dialog>
-    <svg width="700" height="300" style="background:#FFD662;height:1500px">
+    <svg width="1500" height="1000" style="background:#EBF0F6;height:1000px">
       <g />
       <rect />
     </svg>
@@ -90,21 +90,29 @@ export default {
           {
             id: 'node4',
             label: '节点4',
-            color: 'red'
+            color: '#2B9CE0'
           }
         ],
         edges: [
+           {
+            source: 'node1',
+            target: 'node1',
+            arrowhead:'node1-node1'
+          },
           {
             source: 'node1',
-            target: 'node2'
+            target: 'node2',
+            arrowhead:'node1-node2'
           },
           {
             source: 'node2',
-            target: 'node3'
+            target: 'node3',
+            arrowhead:'node2-node3'
           },
           {
             source: 'node2',
-            target: 'node4'
+            target: 'node4',
+            arrowhead:'node2-node4'
           }
         ]
       }
@@ -123,13 +131,19 @@ export default {
       this.list.nodeInfos.forEach(item => {
         //item.rx = item.ry = 5 //圆角
         g.setNode(item.id, {
+          label: item.label,
+          labelStyle: 'fill:#ffffff', //设置字体颜色
           style: `fill:${item.color}`, //节点背景色
           shape: 'rect' //rect矩形  circle圆形   ellipse椭圆 diamond菱形
         })
       })
       // 链接关系
       this.list.edges.forEach(item => {
-        g.setEdge(item.source, item.target, {})
+        g.setEdge(item.source, item.target, {
+          labelStyle: 'fill:#C16E12', //设置字体颜色
+          arrowheadStyle: 'fill: #47646C', //箭头颜色
+          label: item.arrowhead
+        })
       })
       g.nodes().forEach(function(v) {
         console.log('Node ' + v + ': ' + JSON.stringify(g.node(v)))
@@ -164,6 +178,7 @@ export default {
         })
         this.$set(this.code, 'target', edgesData[0].target)
         this.$set(this.code, 'source', edgesData[0].source)
+        alert('选中数据'+JSON.stringify(this.code))
       })
       var initialScale = 1.75 //设置初始缩放大小
       svg.call(zoom.transform, d3.zoomIdentity.translate((svg.attr('width') - g.graph().width * initialScale) / 2, 20).scale(initialScale))
@@ -240,8 +255,8 @@ svg {
 }
 
 .edgePath path {
-  stroke: #606266;
-  fill: #333;
-  stroke-width: 1.5px;
+  stroke: #47646c;
+  stroke-width: 1.2px;
+  stroke-dasharray: 5, 5;
 }
 </style>
