@@ -12,6 +12,10 @@
 
     4.可自定义箭头及节点背景色
 
+    5.添加节点和动作tip
+
+    6.添加流程展示（横向、竖向）---rankdir属性
+
 ## Project setup
 ```
 npm install

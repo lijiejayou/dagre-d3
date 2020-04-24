@@ -63,6 +63,7 @@
 <script>
 import dagreD3 from 'dagre-d3'
 import * as d3 from 'd3'
+import d3Tip from './d3-tip'
 export default {
   data() {
     return {
@@ -94,25 +95,25 @@ export default {
           }
         ],
         edges: [
-           {
+          {
             source: 'node1',
             target: 'node1',
-            arrowhead:'node1-node1'
+            arrowhead: 'node1-node1'
           },
           {
             source: 'node1',
             target: 'node2',
-            arrowhead:'node1-node2'
+            arrowhead: 'node1-node2'
           },
           {
             source: 'node2',
             target: 'node3',
-            arrowhead:'node2-node3'
+            arrowhead: 'node2-node3'
           },
           {
             source: 'node2',
             target: 'node4',
-            arrowhead:'node2-node4'
+            arrowhead: 'node2-node4'
           }
         ]
       }
@@ -125,7 +126,9 @@ export default {
     //图形渲染
     init() {
       //获取D3
-      var g = new dagreD3.graphlib.Graph().setGraph({})
+      var g = new dagreD3.graphlib.Graph().setGraph({
+        rankdir: 'LR'    //设置流程图方向row
+      })
       console.log(g)
       // 添加节点
       this.list.nodeInfos.forEach(item => {
@@ -161,25 +164,52 @@ export default {
       svg.call(zoom)
       var render = new dagreD3.render()
       render(inner, g)
-
+      //实现Tip
+      const tip = d3Tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(c => c)
+      svg.call(tip)
       //点击事件
-      inner.selectAll('g.node').on('click', e => {
-        //获取点击节点信息
-        let nodeData = []
-        nodeData = this.list.nodeInfos.filter(item => {
-          return item.id == e
-        })
-        this.code = nodeData[0]
+      inner
+        .selectAll('g.node')
+        .on('click', e => {
+          //获取点击节点信息
+          let nodeData = []
+          nodeData = this.list.nodeInfos.filter(item => {
+            return item.id == e
+          })
+          this.code = nodeData[0]
 
-        //获取当前节点及其父节点
-        let edgesData = []
-        edgesData = this.list.edges.filter(item => {
-          return item.target == e
+          //获取当前节点及其父节点
+          let edgesData = []
+          edgesData = this.list.edges.filter(item => {
+            return item.target == e
+          })
+          this.$set(this.code, 'target', edgesData[0].target)
+          this.$set(this.code, 'source', edgesData[0].source)
+          alert('选中数据' + JSON.stringify(this.code))
         })
-        this.$set(this.code, 'target', edgesData[0].target)
-        this.$set(this.code, 'source', edgesData[0].source)
-        alert('选中数据'+JSON.stringify(this.code))
-      })
+        //节点的鼠标移入移出
+        .on('mouseover', e => {
+          let node = g.node(e)
+          tip.show(`状态码：${e}<br/><br/>描述：${node.label}`)
+        })
+        .on('mouseout', e => {
+          tip.hide(d3.event)
+        })
+
+      //动作的鼠标移入移出
+      inner
+        .selectAll('g.edgeLabel') //获取所有label节点
+        //模拟hover
+        .on('mouseover', e => {
+          let edge = g.edge(e)
+          tip.show(`状态更改：${e.v} 到 ${e.w}<br/><br/>动作：${edge.label}`)
+        })
+        .on('mouseout', e => {
+          tip.hide(d3.event)
+        })
       var initialScale = 1.75 //设置初始缩放大小
       svg.call(zoom.transform, d3.zoomIdentity.translate((svg.attr('width') - g.graph().width * initialScale) / 2, 20).scale(initialScale))
       svg.attr('height', g.graph().height * initialScale + 40)
@@ -224,16 +254,16 @@ export default {
     },
     //删除节点
     deleteNode() {
-       if (!this.code) {
+      if (!this.code) {
         return this.$message.warning('请先选择节点')
       }
-      let { id, color, label, source, target  } = this.code
+      let { id, color, label, source, target } = this.code
       for (var i = 0; i < this.list.nodeInfos.length; i++) {
         if (this.list.nodeInfos[i].id == id) {
           this.list.nodeInfos.splice(i, 1)
         }
       }
-       for (var i = 0; i < this.list.edges.length; i++) {
+      for (var i = 0; i < this.list.edges.length; i++) {
         if (this.list.edges[i].target == target) {
           this.list.edges.splice(i, 1)
         }
@@ -245,6 +275,22 @@ export default {
 </script>
 
 <style lang="less">
+.d3-tip {
+    line-height: 1;
+    padding: 6px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    // font-weight: bolder;
+    border-radius: 2px;
+    border: 1px solid #eee;
+    z-index: 9999;
+}
+text {
+  font-weight: 300;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+  font-size: 14px;
+}
 svg {
   font-size: 14px;
 }
