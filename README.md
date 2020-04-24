@@ -4,9 +4,7 @@
 功能介绍
 
 
-    1.基于插件 d3 及 dagre-d3的流程图展示
-    
-     ![Image](darge/src/image-file/1.PNG "展示")
+    1.基于插件 d3 及 dagre-d3的流程图展
     
     2.可进行节点的增删改功能
 
