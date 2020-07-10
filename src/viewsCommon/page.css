@@ -1,0 +1,293 @@
+/*.page-vcom- 前缀*/
+.safe-plat .page-vcom-inputLabel .el-form-item__label::before {
+    content: "*";
+    color: #f56c6c;
+    margin-right: 4px;
+  }
+  
+  /* 调整ti-edit 弹出层的层级 */
+  .safe-plat .tox-tinymce-aux {
+    z-index: 99999 !important;
+  }
+  
+  .safe-plat .page-upload-botton {
+    display: inline;
+    margin-left: 10px;
+  }
+  
+  .safe-plat .bjq-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .bjq-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bjq-position-lt {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .bjq-el-table-title-cell {
+    text-align: center !important;
+    background-color: #1e4e79 !important;
+    color: #deeaf6;
+    height: 55px;
+  }
+  
+  .bjq-el-table-content-cell {
+    text-align: center !important;
+  }
+  
+  .bjq-warning-row {
+    background: #fff !important;
+  }
+  
+  .bjq-success-row {
+    background: #deeaf6 !important;
+  }
+  
+  /* 重写表格行高亮 */
+  .safe-plat .el-table__body tr.hover-row.current-row>td,
+  .safe-plat .el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+  .safe-plat .el-table__body tr.hover-row.el-table__row--striped>td,
+  .safe-plat .el-table__body tr.hover-row>td {
+    background-color: #f3e2d1;
+  }
+  
+  /* 自定义element-ui样式,行内form表单输入框设置固定宽度 */
+  .safe-plat .el-form--inline .el-form-item__content,
+  .safe-plat .el-form--inline .el-input__inner,
+  .safe-plat .el-input-number,
+  .safe-plat .el-input-number .el-input {
+    width: 220px;
+  }
+  
+  /* 特定组件内部恢复样式 */
+  .safe-plat .jwd-class .el-input__inner,
+  .safe-plat .el-pagination .el-input__inner {
+    width: 100% !important;
+  }
+  
+  /* 重新定义树间隔 */
+  .safe-plat .el-tree-node__content {
+    height: 35px;
+  }
+  
+  .video-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /*鼠标悬浮样式*/
+  .mouse-hover-class:hover {
+    cursor: pointer;
+  }
+  
+  .my-video-tree {
+    height: 100%;
+  }
+  
+  
+  /* 重写element导航高度 */
+  .is-my-system .el-menu--horizontal>.el-menu-item,
+  .is-my-system .el-menu--horizontal>.el-submenu .el-submenu__title,
+  .is-my-system .all-el-logo-left,
+  .is-my-system .nav-head-system-entry .el-menu-item,
+  .is-my-system .el-submenu__title {
+    height: 75px !important;
+    line-height: 75px !important;
+  }
+  
+  .is-my-system-left .all-el-logo-left {
+    height: 75px !important;
+    /* line-height: 75px !important; */
+  }
+  
+  /* 重写选中事件 */
+  .is-my-system-left .el-menu-item.is-active {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    /* border-radius: 15px; */
+  }
+  
+  /* 重写左侧导航hover样式 */
+  .is-my-system-left .el-submenu__title:hover {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    /* border-radius: 15px; */
+  }
+  
+  .is-my-system-left .el-menu-item:hover {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    /* border-radius: 15px; */
+  }
+  
+  /* 重写导航hover样式 */
+  .is-my-system .el-submenu__title:hover {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    border-radius: 15px;
+  }
+  
+  .is-my-system .el-menu-item:hover {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    border-radius: 15px;
+  }
+  
+  /* 重写选中事件 */
+  .is-my-system .el-menu-item.is-active {
+    background-color: rgba(14, 221, 240, 0.32) !important;
+    border-radius: 15px;
+  }
+  
+  /* 系统进入后，颜色和字体统一 */
+  .is-my-system .bjq-system-entry-class {
+    background-color: rgb(4, 41, 60);
+  }
+  
+  /* 重写main */
+  .is-my-system-not-entry .el-main {
+    padding: 0 20px 20px 20px !important;
+    margin-top: 20px !important;
+  }
+  
+  .is-my-system-and-entry .el-main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  
+  .bjq-bt-color-del {
+    color: rgb(255, 255, 255);
+    background-color: rgb(230, 0, 18);
+    border-color: rgb(230, 0, 18);
+  }
+  
+  .bjq-bt-color-look {
+    color: rgb(255, 255, 255);
+    background-color: rgb(63, 174, 220);
+    border-color: rgb(63, 174, 220);
+  }
+  
+  .bjq-bt-color-i {
+    color: rgb(255, 255, 255);
+    background-color: rgb(91, 142, 187);
+    border-color: rgb(91, 142, 187);
+  }
+  
+  .bjq-bt-color-ii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(45, 112, 176);
+    border-color: rgb(45, 112, 176);
+  }
+  
+  .bjq-bt-color-iii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(122, 137, 161);
+    border-color: rgb(122, 137, 161);
+  }
+  
+  .bjq-bt-color-iv {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 94, 154);
+    border-color: rgb(66, 94, 154);
+  }
+  
+  .bjq-bt-color-v {
+    color: rgb(255, 255, 255);
+    background-color: rgb(122, 160, 207);
+    border-color: rgb(122, 160, 207);
+  }
+  
+  .bjq-bt-color-vi {
+    color: rgb(255, 255, 255);
+    background-color: rgb(157, 175, 174);
+    border-color: rgb(157, 175, 174);
+  }
+  
+  .bjq-bt-color-vii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(61, 172, 192);
+    border-color: rgb(61, 172, 192);
+  }
+  
+  .bjq-bt-color-viii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(47, 132, 161);
+    border-color: rgb(47, 132, 161);
+  }
+  
+  .bjq-bt-color-ix {
+    color: rgb(255, 255, 255);
+    background-color: rgb(118, 178, 186);
+    border-color: rgb(118, 178, 186);
+  }
+  
+  .bjq-bt-color-x {
+    color: rgb(255, 255, 255);
+    background-color: rgb(97, 156, 193);
+    border-color: rgb(97, 156, 193);
+  }
+  
+  .bjq-bt-color-xi {
+    color: rgb(255, 255, 255);
+    background-color: rgb(39, 70, 147);
+    border-color: rgb(39, 70, 147);
+  }
+  
+  .bjq-bt-color-xii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(73, 70, 147);
+    border-color: rgb(73, 70, 147);
+  }
+  
+  .bjq-bt-color-xiii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(105, 104, 152);
+    border-color: rgb(105, 104, 152);
+  }
+  
+  .bjq-bt-color-xiv {
+    color: rgb(255, 255, 255);
+    background-color: rgb(94, 114, 116);
+    border-color: rgb(94, 114, 116);
+  }
+  
+  .bjq-bt-color-xv {
+    color: rgb(255, 255, 255);
+    background-color: rgb(94, 158, 200);
+    border-color: rgb(94, 158, 200);
+  }
+  
+  .bjq-bt-color-xvi {
+    color: rgb(255, 255, 255);
+    background-color: rgb(84, 150, 161);
+    border-color: rgb(84, 150, 161);
+  }
+  
+  .bjq-bt-color-xvii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(103, 182, 125);
+    border-color: rgb(103, 182, 125);
+  }
+  
+  .bjq-bt-color-xviii {
+    color: rgb(255, 255, 255);
+    background-color: rgb(41, 127, 188);
+    border-color: rgb(41, 127, 188);
+  }
+  
+  .bjq-bt-color-xix {
+    color: rgb(255, 255, 255);
+    background-color: rgb(26, 84, 157);
+    border-color: rgb(26, 84, 157);
+  }
+  
+  .el-dialog-max-height .el-dialog {
+    max-height: 700px;
+    overflow-y: scroll;
+  }

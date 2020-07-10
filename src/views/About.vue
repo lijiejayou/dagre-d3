@@ -210,6 +210,7 @@ export default {
         .on('mouseout', e => {
           tip.hide(d3.event)
         })
+        .on('click', e => {})
       var initialScale = 1.75 //设置初始缩放大小
       svg.call(zoom.transform, d3.zoomIdentity.translate((svg.attr('width') - g.graph().width * initialScale) / 2, 20).scale(initialScale))
       svg.attr('height', g.graph().height * initialScale + 40)
@@ -276,19 +277,19 @@ export default {
 
 <style lang="less">
 .d3-tip {
-    line-height: 1;
-    padding: 6px;
-    background: #fff;
-    color: #333;
-    font-size: 14px;
-    // font-weight: bolder;
-    border-radius: 2px;
-    border: 1px solid #eee;
-    z-index: 9999;
+  line-height: 1;
+  padding: 6px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  // font-weight: bolder;
+  border-radius: 2px;
+  border: 1px solid #eee;
+  z-index: 9999;
 }
 text {
   font-weight: 300;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serf;
   font-size: 14px;
 }
 svg {
